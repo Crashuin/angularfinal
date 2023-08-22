@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { SingupComponent } from './singup/singup.component';
 import { NotasComponent } from './notas/notas.component';
+import { ErrorComponent } from './error/error.component';
 
 const routes: Routes = [
 
@@ -18,9 +19,13 @@ const routes: Routes = [
     path:'appnotas',
     component: NotasComponent
   },
-
-  { path: '', redirectTo: '/login', pathMatch: 'full' }, // Redirecciona a /login por defecto
-  { path: '**', redirectTo: '/login' } 
+  { path: '',
+   redirectTo: '/login',
+    pathMatch: 'full'
+  },
+  { path: '**',
+    component: ErrorComponent
+  } 
 
 ];
 

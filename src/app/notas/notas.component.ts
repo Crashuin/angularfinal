@@ -22,12 +22,12 @@ import { Router } from '@angular/router';
 export class NotasComponent implements OnInit {
   
   displayedColumns: string[] = [
-    'id',
+    //'id',
     'contenido',
     // 'fechaCreacion',
     // 'prioridad',
     // 'estado',
-    'action'
+    //'action'
     
   ];
   

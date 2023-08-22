@@ -1,5 +1,5 @@
 <div mat-dialog-title>
-    <h1>Formulario empleado</h1>
+    <h1 class="text-center fs-2">Ingrese su nota</h1>
   </div>
   <form [formGroup]="notasForm" (ngSubmit)="onFormSubmit()">
     <div mat-dialog-content class="content">
@@ -7,34 +7,47 @@
         <div class="row">
             <mat-form-field appearance="outline" class="mt-2">
                 <mat-label>Título</mat-label>
-                <input matInput type="text" placeholder="Título de la nota" formControlName="titulo">           
+                <input matInput type="text" placeholder="Título de la nota" formControlName="titulo">
+                <mat-icon matSuffix style="color: aliceblue;">mail_outline</mat-icon>           
             </mat-form-field>
         </div>
 
         <div class="row">
             <mat-form-field appearance="outline" class="mt-2">
                 <mat-label>Contenido</mat-label>
-                <textarea  matInput type="text" placeholder="Contenido de la nota" formControlName="contenido"></textarea> 
+                <textarea  matInput type="text" placeholder="Contenido de la nota" formControlName="contenido"></textarea>
+                <mat-icon matSuffix style="color: aliceblue;">note</mat-icon>   
             </mat-form-field>
 
             <mat-form-field appearance="outline">
-                <mat-label>Apellido</mat-label>
-                <input matInput type="text" placeholder="Fecha de creación" formControlName="fechaCreacion">           
+                <mat-label>Fecha límite</mat-label>
+                <input matInput [matDatepicker]="picker" placeholder="Fecha de creación" formControlName="fechaCreacion">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>           
             </mat-form-field>
         </div>
         <div class="row">
             <mat-form-field appearance="outline" class="mt-2">
                 <mat-label>Prioridad</mat-label>
-                <input matInput type="text" placeholder="Contenido de la nota" formControlName="prioridad">           
+                <mat-select formControlName="prioridad">
+                  <mat-option *ngFor="let val of prioridad" [value]="val">{{val}}
+                  </mat-option>
+                </mat-select> 
+                <mat-icon matSuffix style="color: aliceblue;">priority_high</mat-icon>          
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Estado</mat-label>
-                <input matInput type="text" placeholder="Estado" formControlName="estado">           
+                <mat-select formControlName="estado">
+                    <mat-option *ngFor="let val of estado" [value]="val">{{val}}
+                    </mat-option>
+                </mat-select>
+                <mat-icon matSuffix style="color: aliceblue;">check_box</mat-icon>             
             </mat-form-field>
         </div>
     
         <div mat-dialog-actions align="center" class="my-3 mx-4">
-            <button mat-raised-button type="button" [mat-dialog-close]="false">Cancelar</button>
+            <button mat-raised-button color="accent" type="button" [mat-dialog-close]="false">Cancelar</button>
             <button mat-raised-button color="primary" type="submit">{{data? 'Editar' : 'Guardar'}}</button>
         </div>
     </div>

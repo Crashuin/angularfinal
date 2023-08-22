@@ -27,6 +27,9 @@ import {MatCardModule} from '@angular/material/card';
 import { NotasComponent } from './notas/notas.component';
 import { LoginComponent } from './login/login.component';
 import { SingupComponent } from './singup/singup.component';
+import { ErrorComponent } from './error/error.component';
+
+import {MAT_DATE_LOCALE} from '@angular/material/core';
 
 
 @NgModule({
@@ -35,7 +38,8 @@ import { SingupComponent } from './singup/singup.component';
     NotasAddEditComponent,
     NotasComponent,
     LoginComponent,
-    SingupComponent
+    SingupComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +63,7 @@ import { SingupComponent } from './singup/singup.component';
     MatCardModule,
     
   ],
-  providers: [],
+  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'es-ES' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

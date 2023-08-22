@@ -15,6 +15,19 @@ import { CoreService } from '../core/core.service';
 })
 export class NotasAddEditComponent implements OnInit {
 
+  prioridad: string[] = [
+    'Alta',
+    'Media',
+    'Baja'
+  ];
+
+  estado: string[] = [
+    'Completado',
+    'No completado',
+    'Pendiente'
+  ];
+
+
   notasForm: FormGroup;
 
   constructor(
@@ -47,7 +60,7 @@ export class NotasAddEditComponent implements OnInit {
       if (this.data) {
         this._notasService.updateNotas(this.data.id, this.notasForm.value).subscribe({
           next: (val: any) => {
-            this._coreService.openSnackBar('Empleado actualizado exitosamente', 'done')
+            this._coreService.openSnackBar('Nota actualizada exitosamente', 'Hecho')
             this._dialogRef.close(true);
           },
           error: (err: any) => {
@@ -58,7 +71,7 @@ export class NotasAddEditComponent implements OnInit {
       } else {
         this._notasService.addNotas(this.notasForm.value).subscribe({
           next: (val: any) => {
-            this._coreService.openSnackBar('Empleado añadido exitosamente', 'done')
+            this._coreService.openSnackBar('Nota añadida exitosamente', 'Hecho')
             this._dialogRef.close(true);
           },
           error: (err: any) => {
