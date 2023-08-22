@@ -18,12 +18,21 @@
   },
   "notas": [
     {
-      "titulo": "asdasd",
-      "contenido": "asdasd",
-      "fechaCreacion": "asdasd",
-      "prioridad": "asdasd",
-      "estado": "asdasd",
-      "id": 2
+      "titulo": "Recordatorio",
+      "contenido": "Proyecto Final angular",
+      "fechaCreacion": "21/08/2023",
+      "prioridad": "Alta",
+      "estado": "No completado",
+      "id": 1
+    }
+  ],
+  "signup": [
+    {
+      "fname": "Daniel",
+      "lname": "Perez",
+      "email": "daniel@gmail.com",
+      "password": "123",
+      "id": 1
     }
   ]
 }
