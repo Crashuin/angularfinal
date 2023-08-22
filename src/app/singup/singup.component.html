@@ -15,6 +15,9 @@
                     <mat-label>Nombre</mat-label>
                     <input type="text" matInput placeholder="Ingrese su nombre" formControlName="fname">
                     <mat-icon style="color: white;" matSuffix>person</mat-icon>
+                    <mat-error *ngIf="fname.invalid || fname.pristine">
+                        El nombre es requerido
+                    </mat-error> 
                 </mat-form-field>
             </div>
 
@@ -23,6 +26,9 @@
                     <mat-label>Apellido</mat-label>
                     <input type="text" matInput placeholder="Ingrese su apellido" formControlName="lname">
                     <mat-icon style="color: white;" matSuffix>people</mat-icon>
+                    <mat-error *ngIf="lname.invalid || lname.pristine">
+                        El apellido es requerido
+                    </mat-error> 
                 </mat-form-field>
             </div>
 
@@ -31,6 +37,12 @@
                     <mat-label>Correo electronico</mat-label>
                     <input type="email" matInput placeholder="Ingrese su correo electronico" formControlName="email">
                     <mat-icon style="color: white;" matSuffix>email</mat-icon>
+                    <mat-error *ngIf="email.errors?.['required']">
+                        El email es requerido
+                    </mat-error>
+                    <mat-error *ngIf="email.errors?.['email']">
+                        Ingrese un email valido
+                    </mat-error>
                 </mat-form-field>
             </div>
 
@@ -39,6 +51,9 @@
                     <mat-label>Contraseña</mat-label>
                     <input type="password" matInput placeholder="Ingrese su contraseña" formControlName="password">
                     <mat-icon style="color: white;" matSuffix>lock</mat-icon>
+                    <mat-error *ngIf="password.invalid || password.pristine">
+                        La contraseña es requerida
+                    </mat-error> 
                 </mat-form-field>
             </div>
 

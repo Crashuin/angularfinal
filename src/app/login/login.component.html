@@ -14,12 +14,15 @@
          
             <div class="row my-2">
                 <mat-form-field appearance="outline" >
-                    <mat-label>Nombre de usuario</mat-label>
-                    <input type="text" matInput placeholder="Ingrese su nombre de usuario" formControlName="fname">
-                    <mat-icon style="color: white;" matSuffix>person</mat-icon>
-                    <mat-error *ngIf="fname.invalid || fname.pristine">
-                        Ingrese un nombre de usuario
-                    </mat-error> 
+                    <mat-label>Email</mat-label>
+                    <input type="text" matInput placeholder="Ingrese su nombre de usuario" formControlName="email">
+                    <mat-icon style="color: white;" matSuffix>email</mat-icon>
+                    <mat-error *ngIf="email.errors?.['required']">
+                        El email es requerido
+                    </mat-error>
+                    <mat-error *ngIf="email.errors?.['email']">
+                        Ingrese un email valido
+                    </mat-error>
                 </mat-form-field>
             </div>
 
@@ -40,7 +43,7 @@
 
 
             <div class="button text-center">
-                <button class="p-3" type="submit" color="primary" mat-raised-button>Iniciar sesión</button>
+                <button class="p-3" type="submit" color="primary" mat-raised-button [disabled]="login.invalid">Iniciar sesión</button>
             </div>
 
         </form>

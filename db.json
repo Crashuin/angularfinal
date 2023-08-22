@@ -41,6 +41,13 @@
       "email": "daniel@gmail.com",
       "password": "123",
       "id": 1
+    },
+    {
+      "fname": "Daniel",
+      "lname": "Perez",
+      "email": "daniel@gmail.com",
+      "password": "123",
+      "id": 2
     }
   ]
 }

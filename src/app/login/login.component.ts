@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit{
     // })
     
     this.login = this._fb.group({
-      fname: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
     });
   }
@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit{
     // console.log(this.login.value);
     this._http.get<any>("http://localhost:3000/signup").subscribe(res =>{
       const user = res.find((a:any)=>{
-        return a.fname === this.login.value.fname && a.password === this.login.value.password
+        return a.email === this.login.value.email && a.password === this.login.value.password
       });
 
       if (user) {
@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit{
         this.login.reset();
         this.router.navigate(['/appnotas']);
       } else {
-        this._coreService.openSnackBar('Usuario no registrado', 'Hecho');
+        this._coreService.openSnackBar('Revise sus credenciales', 'Hecho');
         this.router.navigate(['/login']);
       }
 
@@ -64,8 +64,8 @@ export class LoginComponent implements OnInit{
 
   //validaciones
 
-  get fname() {
-    return this.login.get('fname') as FormControl;
+  get email() {
+    return this.login.get('email') as FormControl;
   }
 
   get password() {

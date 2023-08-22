@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { Router } from '@angular/router';
 import { CoreService } from '../core/core.service';
@@ -16,6 +16,7 @@ export class SingupComponent implements OnInit {
   signuser:any;
   
   constructor(
+    private _fb: FormBuilder,
     private router: Router,
     private _http: HttpClient,
     private _coreService: CoreService 
@@ -25,12 +26,19 @@ export class SingupComponent implements OnInit {
   }
 
   ngOnInit(): void {
-      this.signup = new FormGroup({
-        'fname': new FormControl(),
-        'lname': new FormControl(),
-        'email': new FormControl(),
-        'password': new FormControl()
-      })
+      // this.signup = new FormGroup({
+      //   'fname': new FormControl(),
+      //   'lname': new FormControl(),
+      //   'email': new FormControl(),
+      //   'password': new FormControl()
+      // })
+
+      this.signup = this._fb.group({
+        fname: ['', Validators.required],
+        lname: ['', Validators.required],
+        email: ['', [Validators.required, Validators.email]],
+        password: ['', Validators.required],
+      });
   }
 
   signupdata(signup: FormGroup){
@@ -48,6 +56,25 @@ export class SingupComponent implements OnInit {
   navigateToLogin() {
     this.router.navigate(['/login']);
   }
+
+  //validaciones
+
+  get fname() {
+    return this.signup.get('fname') as FormControl;
+  }
+
+  get lname() {
+    return this.signup.get('lname') as FormControl;
+  }
+
+  get email() {
+    return this.signup.get('email') as FormControl;
+  }
+
+  get password() {
+    return this.signup.get('password') as FormControl;
+  }
+
 
 
 }
