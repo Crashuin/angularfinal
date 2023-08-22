@@ -13,18 +13,24 @@
         <form [formGroup]="login" (ngSubmit)="logindata(login)">
          
             <div class="row my-2">
-                <mat-form-field appearance="outline">
+                <mat-form-field appearance="outline" >
                     <mat-label>Nombre de usuario</mat-label>
                     <input type="text" matInput placeholder="Ingrese su nombre de usuario" formControlName="fname">
                     <mat-icon style="color: white;" matSuffix>person</mat-icon>
+                    <mat-error *ngIf="fname.invalid || fname.pristine">
+                        Ingrese un nombre de usuario
+                    </mat-error> 
                 </mat-form-field>
             </div>
 
             <div class="row my-2" >
-                <mat-form-field appearance="outline">
+                <mat-form-field appearance="outline" class="mat-form-field-required">
                     <mat-label>Contraseña</mat-label>
                     <input type="password" matInput placeholder="Ingrese su contraseña" formControlName="password">
                     <mat-icon style="color: white;" matSuffix>lock</mat-icon>
+                    <mat-error *ngIf="password.invalid || password.pristine">
+                        Ingrese la contraseña
+                    </mat-error> 
                 </mat-form-field>
             </div>
 

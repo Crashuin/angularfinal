@@ -5,50 +5,67 @@
     <div mat-dialog-content class="content">
 
         <div class="row">
-            <mat-form-field appearance="outline" class="mt-2">
+            <mat-form-field appearance="outline" class="my-1">
                 <mat-label>Título</mat-label>
                 <input matInput type="text" placeholder="Título de la nota" formControlName="titulo">
-                <mat-icon matSuffix style="color: aliceblue;">mail_outline</mat-icon>           
+                <mat-icon matSuffix style="color: aliceblue;">mail_outline</mat-icon>   
+                <mat-error *ngIf="titulo.invalid || titulo.pristine">
+                    La nota debe tener un título
+                </mat-error> 
             </mat-form-field>
         </div>
 
         <div class="row">
-            <mat-form-field appearance="outline" class="mt-2">
+            <mat-form-field appearance="outline" class="my-1">
                 <mat-label>Contenido</mat-label>
                 <textarea  matInput type="text" placeholder="Contenido de la nota" formControlName="contenido"></textarea>
-                <mat-icon matSuffix style="color: aliceblue;">note</mat-icon>   
+                <mat-icon matSuffix style="color: aliceblue;">note</mat-icon>
+                <mat-error *ngIf="contenido.invalid || contenido.pristine">
+                    La nota debe tener una anotación de lo que trata
+                </mat-error>   
             </mat-form-field>
 
-            <mat-form-field appearance="outline">
+            <mat-form-field appearance="outline" class="my-1">
                 <mat-label>Fecha límite</mat-label>
-                <input matInput [matDatepicker]="picker" placeholder="Fecha de creación" formControlName="fechaCreacion">
+                <input matInput [matDatepicker]="picker" placeholder="Fecha de creación" formControlName="fechaLimite">
                 <mat-hint>MM/DD/YYYY</mat-hint>
                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>           
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="fechaLimite.invalid || fechaLimite.pristine">
+                    La nota debe tener estipulada una fecha
+                </mat-error>  
             </mat-form-field>
         </div>
+
         <div class="row">
-            <mat-form-field appearance="outline" class="mt-2">
+            <mat-form-field appearance="outline" class="my-1">
                 <mat-label>Prioridad</mat-label>
                 <mat-select formControlName="prioridad">
-                  <mat-option *ngFor="let val of prioridad" [value]="val">{{val}}
+                  <mat-option *ngFor="let val of prioridadOpciones" [value]="val">{{val}}
                   </mat-option>
                 </mat-select> 
-                <mat-icon matSuffix style="color: aliceblue;">priority_high</mat-icon>          
+                <mat-icon matSuffix style="color: aliceblue;">priority_high</mat-icon> 
+                <mat-error *ngIf="prioridad.invalid || prioridad.pristine">
+                    La nota debe estar asignada una prioridad
+                </mat-error>           
             </mat-form-field>
-            <mat-form-field appearance="outline">
+    
+            <mat-form-field appearance="outline" class="my-1">
                 <mat-label>Estado</mat-label>
                 <mat-select formControlName="estado">
-                    <mat-option *ngFor="let val of estado" [value]="val">{{val}}
+                    <mat-option *ngFor="let val of estadoOpciones" [value]="val">{{val}}
                     </mat-option>
                 </mat-select>
-                <mat-icon matSuffix style="color: aliceblue;">check_box</mat-icon>             
+                <mat-icon matSuffix style="color: aliceblue;">check_box</mat-icon>
+                <mat-error *ngIf="estado.invalid || estado.pristine">
+                    La nota debe estar asignado un estado
+                </mat-error>               
             </mat-form-field>
         </div>
     
         <div mat-dialog-actions align="center" class="my-3 mx-4">
             <button mat-raised-button color="accent" type="button" [mat-dialog-close]="false">Cancelar</button>
-            <button mat-raised-button color="primary" type="submit">{{data? 'Editar' : 'Guardar'}}</button>
+            <button mat-raised-button color="primary" [disabled]="notasForm.invalid" type="submit">{{data? 'Editar' : 'Guardar'}}</button>
         </div>
     </div>
   </form>

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { Router } from '@angular/router';
 import { CoreService } from '../core/core.service';
@@ -25,10 +25,15 @@ export class LoginComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.login = new FormGroup({
-      'fname': new FormControl(),
-      'password': new FormControl()
-    })  
+    // this.login = new FormGroup({
+    //   'fname': new FormControl(),
+    //   'password': new FormControl()
+    // })
+    
+    this.login = this._fb.group({
+      fname: ['', Validators.required],
+      password: ['', Validators.required],
+    });
   }
 
   logindata(login: FormGroup) {
@@ -57,6 +62,17 @@ export class LoginComponent implements OnInit{
   }
 
 
+  //validaciones
+
+  get fname() {
+    return this.login.get('fname') as FormControl;
+  }
+
+  get password() {
+    return this.login.get('password') as FormControl;
+  }
+
+  
 
 }
 

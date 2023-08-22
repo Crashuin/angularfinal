@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { Dialog, DialogRef } from '@angular/cdk/dialog';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
@@ -15,13 +15,13 @@ import { CoreService } from '../core/core.service';
 })
 export class NotasAddEditComponent implements OnInit {
 
-  prioridad: string[] = [
+  prioridadOpciones: string[] = [
     'Alta',
     'Media',
     'Baja'
   ];
 
-  estado: string[] = [
+  estadoOpciones: string[] = [
     'Completado',
     'No completado',
     'Pendiente'
@@ -40,11 +40,11 @@ export class NotasAddEditComponent implements OnInit {
   ){
 
     this.notasForm = this._fb.group({
-      titulo:'',
-      contenido: '',
-      fechaCreacion: '',
-      prioridad: '',
-      estado: ''
+      titulo: ['', Validators.required],
+      contenido: ['', Validators.required],
+      fechaLimite: ['', Validators.required],
+      prioridad: ['', Validators.required],
+      estado: ['', Validators.required]
 
     })
 
@@ -83,7 +83,26 @@ export class NotasAddEditComponent implements OnInit {
     }
   }
 
- 
+  //Form Control para validación del formulario
 
+  get titulo() {
+    return this.notasForm.get('titulo') as FormControl;
+  }
+
+  get contenido() {
+    return this.notasForm.get('contenido') as FormControl;
+  }
+
+  get fechaLimite() {
+    return this.notasForm.get('fechaLimite') as FormControl;
+  }
+
+  get prioridad() {
+    return this.notasForm.get('prioridad') as FormControl;
+  }
+  
+  get estado(){
+    return this.notasForm.get('estado') as FormControl;
+  }
 
 }
