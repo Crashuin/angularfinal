@@ -20,7 +20,7 @@
     {
       "titulo": "Recordatorio",
       "contenido": "Proyecto Final angular",
-      "fechaCreacion": "2023-08-22T05:00:00.000Z",
+      "fechaLimite": "2023-08-23T05:00:00.000Z",
       "prioridad": "Alta",
       "estado": "No completado",
       "id": 1
@@ -28,7 +28,7 @@
     {
       "titulo": "Tarea",
       "contenido": "Entregar documentación",
-      "fechaCreacion": "2023-08-30T05:00:00.000Z",
+      "fechaLimite": "2023-08-23T05:00:00.000Z",
       "prioridad": "Alta",
       "estado": "Pendiente",
       "id": 2
