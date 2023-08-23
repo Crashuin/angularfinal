@@ -36,6 +36,10 @@ export class LoginComponent implements OnInit{
     });
   }
 
+  async onSubmit() {
+
+  }
+
   logindata(login: FormGroup) {
     // console.log(this.login.value);
     this._http.get<any>("http://localhost:3000/signup").subscribe(res =>{
@@ -44,6 +48,8 @@ export class LoginComponent implements OnInit{
       });
 
       if (user) {
+        const token = 'token-sesion';
+        localStorage.setItem('token_start', token);
         this._coreService.openSnackBar('Inicio de sesión exitoso', 'Hecho');
         this.login.reset();
         this.router.navigate(['/appnotas']);

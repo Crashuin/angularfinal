@@ -103,6 +103,7 @@ export class NotasComponent implements OnInit {
     }
 
     navigateToLogin() {
+      localStorage.removeItem('token_start');
       this.router.navigate(['/login']);
     }
 

@@ -32,6 +32,7 @@ import { ErrorComponent } from './error/error.component';
 import {MAT_DATE_LOCALE} from '@angular/material/core';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +40,8 @@ import {MAT_DATE_LOCALE} from '@angular/material/core';
     NotasComponent,
     LoginComponent,
     SingupComponent,
-    ErrorComponent
+    ErrorComponent,
+    
   ],
   imports: [
     BrowserModule,
