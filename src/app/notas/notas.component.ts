@@ -104,6 +104,7 @@ export class NotasComponent implements OnInit {
 
     navigateToLogin() {
       localStorage.removeItem('token_start');
+      this._coreService.openSnackBar('Se ha cerrado sesión', 'Ok');
       this.router.navigate(['/login']);
     }
 

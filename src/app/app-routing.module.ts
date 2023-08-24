@@ -5,6 +5,7 @@ import { SingupComponent } from './singup/singup.component';
 import { NotasComponent } from './notas/notas.component';
 import { ErrorComponent } from './error/error.component';
 import { loginGuard } from './guards/login.guard';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
 
@@ -20,10 +21,13 @@ const routes: Routes = [
     path:'appnotas',
     component: NotasComponent,
     canActivate: [loginGuard]
+  },{
+    path:'home',
+    component: HomeComponent
   },
   { path: '',
     // redirectTo: '/login',
-    component: LoginComponent,
+    component: HomeComponent,
     // pathMatch: 'full'
   },
   { path: '**',

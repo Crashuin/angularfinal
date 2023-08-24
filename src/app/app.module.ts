@@ -30,6 +30,7 @@ import { SingupComponent } from './singup/singup.component';
 import { ErrorComponent } from './error/error.component';
 
 import {MAT_DATE_LOCALE} from '@angular/material/core';
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -41,6 +42,7 @@ import {MAT_DATE_LOCALE} from '@angular/material/core';
     LoginComponent,
     SingupComponent,
     ErrorComponent,
+    HomeComponent,
     
   ],
   imports: [

@@ -6,7 +6,6 @@ export const loginGuard = () => {
 
     const router = inject(Router);
     const coreService = inject(CoreService);
-     
 
     if (localStorage.getItem('token_start')) {
         return true;
