@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit{
         localStorage.setItem('token_start', token);
         this._coreService.openSnackBar('Inicio de sesión exitoso', 'Hecho');
         this.login.reset();
-        this.router.navigate(['/appnotas']);
+        this.router.navigate(['/mainapp/notas']);
       } else {
         this._coreService.openSnackBar('Revise sus credenciales', 'Hecho');
         this.router.navigate(['/login']);

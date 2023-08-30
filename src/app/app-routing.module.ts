@@ -6,6 +6,11 @@ import { NotasComponent } from './notas/notas.component';
 import { ErrorComponent } from './error/error.component';
 import { loginGuard } from './guards/login.guard';
 import { HomeComponent } from './home/home.component';
+import { MainappComponent } from './mainapp/mainapp.component';
+import { QuotesComponent } from './quotes/quotes.component';
+import { AverageComponent } from './average/average.component';
+import { AboutComponent } from './about/about.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 const routes: Routes = [
 
@@ -18,17 +23,51 @@ const routes: Routes = [
     component: SingupComponent
   },
   {
-    path:'appnotas',
-    component: NotasComponent,
-    canActivate: [loginGuard]
-  },{
-    path:'home',
-    component: HomeComponent
+    path:'mainapp',
+    //component: MainappComponent,
+    component: MainappComponent,
+    canActivate: [loginGuard],
+    children:[
+      {
+        path: 'notas',
+        component: NotasComponent,
+      },
+      {
+        path: 'average',
+        component: AverageComponent
+      },
+      {
+        path: 'quotes',
+        component: QuotesComponent
+      }
+    ]
   },
-  { path: '',
-    // redirectTo: '/login',
+  {
+    path: 'about',
+    component: AboutComponent
+  },
+  {
+    path:'home',
     component: HomeComponent,
-    // pathMatch: 'full'
+    children:[
+      {
+        path: '',
+        component: WelcomeComponent,
+      },
+      {
+        path: 'welcome',
+        component: WelcomeComponent,
+      },
+      {
+        path: 'about',
+        component: AboutComponent,
+      },
+
+    ]
+  },
+  { 
+    path: '',
+    component: HomeComponent,
   },
   { path: '**',
     component: ErrorComponent

@@ -1,0 +1,17 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    margin: 0px;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

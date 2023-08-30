@@ -1,0 +1,16 @@
+<mat-toolbar color="primary" class="shadow">
+    <mat-icon class="ms-3">home</mat-icon>
+    <span class="ms-2" (click)="navigateToHome()" routerLinkActive="activo">Inicio</span>
+    <mat-icon class="ms-4">note</mat-icon>
+    <span class="ms-2" routerLink="notas" routerLinkActive="activo">Notas</span>
+    <mat-icon class="ms-3">filter_9_plus</mat-icon>
+    <span class="ms-2" routerLink="average" routerLinkActive="activo">Promedio</span>
+    <mat-icon class="ms-3">book</mat-icon>
+    <span class="ms-2" routerLink="quotes" routerLinkActive="activo">Frases</span>
+    <span class="example-spacer"></span>
+    <button mat-raised-button (click)="navigateToLogin()">
+        Cerrar sesión
+    </button>   
+</mat-toolbar>
+
+<router-outlet></router-outlet>

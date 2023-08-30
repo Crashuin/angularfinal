@@ -1,32 +1,13 @@
 <mat-toolbar class="shadow" color="primary">
-    <mat-icon class="ms-3">note_add</mat-icon>
-    <span class="ms-3">Notas y Recordatorios</span>
+    <mat-icon class="ms-3">home</mat-icon>
+    <span class="ms-2" routerLink="welcome">Notas, recordatorios y más</span>
+    <mat-icon class="ms-3">group</mat-icon>
+    <span class="ms-2" routerLink="about">Acerca de</span>
     <span class="example-spacer"></span>
     <button mat-raised-button (click)="navigateToLogin()">
         Iniciar sesión
     </button>   
 </mat-toolbar>
 
+<router-outlet></router-outlet>
 
-<div class="container">
-
-    <img class="img-fluid mx-auto d-block mt-5" src=".\assets\images\bienvenido.png">
-
-    <div class="row">
-        <div class="text-center mt-5 text-white">
-            <h2 class="fs-1">Bienvenido a tu aplicación de notas</h2>
-            <button class="my-4 mat-icon--right" mat-fab extended color="primary" (click)="navigateToLogin()">
-                  <span>Inicia ahora!</span> <mat-icon>chevron_right</mat-icon>
-            </button>  
-            <h2 class="fs-4">¡Organiza tu vida con facilidad! Con nuestra aplicación de notas y lleva tus ideas contigo donde quiera que vayas.</h2>
-            <h2 class="fs-4 mt-2">Captura pensamientos, crea listas y mantén tus tareas al día. Simplifica tu día a día con nuestra aplicación de notas.</h2>                
-        </div>
-    </div>
-
-</div>
-
-
-<mat-toolbar class="shadow" color="primary" class="footer">
-    <span class="col-12">Todos los derechos reservados &copy; 2023 Universidad de Nariño</span>
-    <span class="example-spacer"></span>
-</mat-toolbar>

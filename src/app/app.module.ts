@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { FormsModule } from '@angular/forms';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -31,6 +33,11 @@ import { ErrorComponent } from './error/error.component';
 
 import {MAT_DATE_LOCALE} from '@angular/material/core';
 import { HomeComponent } from './home/home.component';
+import { MainappComponent } from './mainapp/mainapp.component';
+import { AboutComponent } from './about/about.component';
+import { QuotesComponent } from './quotes/quotes.component';
+import { AverageComponent } from './average/average.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 
 
@@ -43,6 +50,11 @@ import { HomeComponent } from './home/home.component';
     SingupComponent,
     ErrorComponent,
     HomeComponent,
+    MainappComponent,
+    AboutComponent,
+    QuotesComponent,
+    AverageComponent,
+    WelcomeComponent,
     
   ],
   imports: [
@@ -65,7 +77,8 @@ import { HomeComponent } from './home/home.component';
     MatPaginatorModule,
     MatSnackBarModule,
     MatCardModule,
-    
+    FormsModule
+   
   ],
   providers: [{ provide: MAT_DATE_LOCALE, useValue: 'es-ES' }],
   bootstrap: [AppComponent]
